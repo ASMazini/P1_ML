@@ -1,78 +1,22 @@
 # P1_ML
 
-Aqui rolou uma análise de **Aprendizado Supervisionado**. 
+Aprendizado Supervisionado
 
-Mas o que isso significa? Basicamente, o nosso modelo (a famosa Regressão Linear Simples) aprendeu os padrões olhando para o histórico de vendas do ano passado. Ou seja, ele treinou usando dados onde a "resposta certa" já era conhecida (o que a gente chama na área de *dados rotulados*). É como estudar para a prova já tendo o gabarito do lado!
+O nosso modelo aprendeu os padrões olhando para o histórico de vendas do ano passado. Ou seja, ele treinou usando dados onde a resposta certa já era conhecida.
 
-Neste caso, nós usamos os Meses (nossa variável independente ou *feature*, que fica no eixo X) para tentar adivinhar as Vendas (nosso alvo ou *target*, no eixo Y). 
+Neste caso, nós usamos os Meses (nossa variável independente, que fica no eixo X) para tentar adivinhar as Vendas (nosso alvo, no eixo Y). 
 
-E tem um detalhe importante: como estamos tentando prever valores numéricos contínuos de vendas (como 150, 200 ou 300 unidades) em vez de separar as coisas em categorias (tipo "vendeu muito" ou "vendeu pouco"), a gente classifica esse projeto especificamente como um problema de **Regressão**.
+--
 
+Análise de Tendência
 
+A análise indica uma clara tendência de crescimento para todos os produtos da loja.
 
+Essa conclusão é confirmada por dois fatores principais: a inclinação da reta é maior que "0" e observamos que o volume de vendas projetado aumenta progressivamente de um trimestre para o outro.
 
-## Análise de Tendência
+--
 
-A análise indica uma clara tendência de **crescimento** para todos os produtos da loja.
-
-Essa conclusão é confirmada por dois fatores principais:
-1. **Matemática (Inclinação Positiva):** Em todos os modelos gerados, o valor de `a` (inclinação da reta) é maior que zero. Isso comprova matematicamente que as vendas sobem a cada mês que passa.
-2. **Evolução Trimestral:** Ao agrupar as previsões, observamos que o volume de vendas projetado aumenta progressivamente de um trimestre para o outro. O Trimestre 5 (meses 13, 14 e 15) apresenta a maior estimativa de vendas de todo o período analisado.
-
-
-# Projeto de Machine Learning: Previsão de Vendas de Tintas
-
-## Tipo de Análise
-Esta é uma análise de **Aprendizado Supervisionado**. Isso ocorre porque o modelo (Regressão Linear Simples) aprende a partir de um histórico de dados onde a "resposta correta" já é conhecida (*dados rotulados*). Neste caso, utilizamos a variável independente ou *feature* (Mês - eixo X) para prever um alvo ou *target* contínuo (Vendas - eixo Y). Como estamos prevendo valores numéricos contínuos em vez de categorias, trata-se especificamente de um problema de **Regressão**.
-
-
-## Parâmetros da Regressão e Confiabilidade
-Aplicamos a Equação da Reta ($y = ax + b$) para cada produto. Abaixo estão a inclinação ($a$), o coeficiente linear ($b$) e o Coeficiente de Determinação ($R^2$), que mede a taxa de acerto/confiabilidade do modelo:
-
-1. **Tinta Acrílica:** - $a$ (inclinação): 19.09 
-   - $b$ (coef. linear): 89.24 
-   - **$R^2$:** 0.7985 (Aprox. 80% de confiabilidade)
-2. **Tinta Esmalte:** - $a$ (inclinação): 10.87 
-   - $b$ (coef. linear): 71.82 
-   - **$R^2$:** 0.9817 (Aprox. 98% de confiabilidade)
-3. **Tinta Látex:** - $a$ (inclinação): 10.00 
-   - $b$ (coef. linear): 190.00 
-   - **$R^2$:** 1.0000 (100% de confiabilidade matemática na amostra)
-4. **Tinta Spray:** - $a$ (inclinação): 5.98 
-   - $b$ (coef. linear): 53.64 
-   - **$R^2$:** 0.9784 (Aprox. 98% de confiabilidade)
-5. **Tinta PVA:** - $a$ (inclinação): 10.00 
-   - $b$ (coef. linear): 140.00 
-   - **$R^2$:** 1.0000 *(Nota: O R² é 1 porque há apenas 2 meses de dados históricos, gerando uma reta perfeita).*
-
-##  Previsão para os Próximos 3 Meses (Mês 13, 14 e 15)
-
-Utilizando os modelos gerados, prevemos o seguinte volume de vendas (em unidades):
-
-| Produto | Mês 13 | Mês 14 | Mês 15 |
-| :--- | :--- | :--- | :--- |
-| **Tinta Acrílica** | 337 | 357 | 376 |
-| **Tinta Esmalte** | 213 | 224 | 235 |
-| **Tinta Látex** | 320 | 330 | 340 |
-| **Tinta Spray** | 131 | 137 | 143 |
-| **Tinta PVA** | 270 | 280 | 290 |
-
-
-##  Previsão Agrupada por Trimestre e Tendência
-
-Agrupando a soma das vendas previstas (históricas e futuras) de cada produto por trimestre:
-
-* **T1 (Meses 1-3):** Acrílica (382), Esmalte (281), Látex (630), Spray (197), PVA (780 - *considerando a projeção para o mês 3*)
-* **T2 (Meses 4-6):** Acrílica (554), Esmalte (379), Látex (720), Spray (251)
-* **T3 (Meses 7-9):** Acrílica (726), Esmalte (476), Látex (810), Spray (304)
-* **T4 (Meses 10-12):** Acrílica (898), Esmalte (574), Látex (900), Spray (358)
-* **T5 (Meses 13-15 - Futuro):** Acrílica (1070), Esmalte (672), Látex (990), Spray (412), PVA (840)
-
-**Análise da Tendência:**
-A tendência indica um **crescimento constante** para todos os produtos. O coeficiente de inclinação ($a$) é positivo para todas as tintas. Analisando a soma trimestral, o volume de vendas projetado sobe consistentemente de um trimestre para o outro. Se o comportamento de mercado se mantiver de acordo com o ano anterior, espera-se que os três próximos meses batam os recordes de vendas de seus respectivos produtos.
-
-
-### 📊 Planilha de Previsão de Vendas
+Planilha de Previsão de Vendas
 
 | Produto | Mês | Vendas reais | Vendas previstas (ŷ) | R² |
 | :--- | :---: | :---: | :---: | :---: |
@@ -141,8 +85,3 @@ A tendência indica um **crescimento constante** para todos os produtos. O coefi
 | **Tinta PVA** | **13** | **-** | **270.00** | **1.0000** |
 | **Tinta PVA** | **14** | **-** | **280.00** | **1.0000** |
 | **Tinta PVA** | **15** | **-** | **290.00** | **1.0000** |
-
-
-
-
-
